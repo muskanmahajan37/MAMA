@@ -3185,88 +3185,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 58893408535513380, guid: 626f50b94f6e8844e94aa83b0c190714,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 114640964836824556, guid: 626f50b94f6e8844e94aa83b0c190714,
+    - target: {fileID: 114820210407327876, guid: 626f50b94f6e8844e94aa83b0c190714,
         type: 2}
       propertyPath: minSpeed
-      value: 8.69
+      value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: 114640964836824556, guid: 626f50b94f6e8844e94aa83b0c190714,
+    - target: {fileID: 114820210407327876, guid: 626f50b94f6e8844e94aa83b0c190714,
         type: 2}
       propertyPath: acceleration
-      value: 5.28
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 114640964836824556, guid: 626f50b94f6e8844e94aa83b0c190714,
+    - target: {fileID: 114820210407327876, guid: 626f50b94f6e8844e94aa83b0c190714,
         type: 2}
       propertyPath: maxSpeed
-      value: 93.8
+      value: 60
       objectReference: {fileID: 0}
-    - target: {fileID: 114640964836824556, guid: 626f50b94f6e8844e94aa83b0c190714,
+    - target: {fileID: 114820210407327876, guid: 626f50b94f6e8844e94aa83b0c190714,
         type: 2}
       propertyPath: jumpHeight
-      value: 11
+      value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 1228821619295652, guid: 626f50b94f6e8844e94aa83b0c190714, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 50832472576556998, guid: 626f50b94f6e8844e94aa83b0c190714,
+    - target: {fileID: 114820210407327876, guid: 626f50b94f6e8844e94aa83b0c190714,
         type: 2}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20206298441261980, guid: 626f50b94f6e8844e94aa83b0c190714,
-        type: 2}
-      propertyPath: orthographic size
-      value: 35.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 114640964836824556, guid: 626f50b94f6e8844e94aa83b0c190714,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50832472576556998, guid: 626f50b94f6e8844e94aa83b0c190714,
-        type: 2}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 50832472576556998, guid: 626f50b94f6e8844e94aa83b0c190714,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 50832472576556998, guid: 626f50b94f6e8844e94aa83b0c190714,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: anchorWeight
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 626f50b94f6e8844e94aa83b0c190714, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2126652692 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1228821619295652, guid: 626f50b94f6e8844e94aa83b0c190714,
-    type: 2}
-  m_PrefabInternal: {fileID: 2098244724}
---- !u!114 &2126652693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2126652692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77742ee617a357a45b4a5d4489d1379d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpeed: 300
-  acceleration: 50
-  maxSpeed: 100
-  jumpHeight: 15
-  extraDoubleJumps: 1
-  anchorWeight: 9
-  speed: 1
