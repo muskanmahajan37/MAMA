@@ -11,11 +11,16 @@ public class PlayerMoveAcc : MonoBehaviour
     public float maxSpeed;
     public float jumpHeight;
     public int extraDoubleJumps = 0;
+	
+	public float anchorWeight;
 
     public float speed;
 
     private float runTime;
 
+	private bool tryingToDrag;
+	private bool dragging;
+	
     private Transform GroundCheck;
     private Rigidbody2D rb;
     private int jumpCharges;
@@ -30,6 +35,9 @@ public class PlayerMoveAcc : MonoBehaviour
         jumpCharges = extraDoubleJumps;
 
         this.runTime = 0.0f;
+		
+		tryingToDrag = false;
+		dragging = false;
     }
 
     // Update is called once per frame
@@ -48,7 +56,6 @@ public class PlayerMoveAcc : MonoBehaviour
             }
             horiz = (horiz * acceleration) + minTemp;
             
-            print(horiz);
 
         } else if(horiz == 0) // If the move button isn't pressed
         {
@@ -63,8 +70,26 @@ public class PlayerMoveAcc : MonoBehaviour
             }
             Vector2 temp = new Vector2(maxSpeedTemp, rb.velocity.y);
             rb.velocity = temp;
-            print("!!!!! OverMaxSpeed");
         }
+		
+		bool amGrounded = this.isGrounded();
+		
+		if  (Input.GetKey(KeyCode.LeftShift) && !amGrounded) {
+			this.tryingToDrag = true;
+		} else if( Input.GetKeyUp(KeyCode.LeftShift) || !amGrounded) {
+			// If you pick up the anchor or you fall off an edge
+			this.tryingToDrag = false;
+			dragging = false;
+			rb.drag = 0;
+		}
+		
+		// We're using this strange order of logic because if the player
+		// presses shift while in air, the game should start dragging 
+		// as soon as it can. 
+		if (this.tryingToDrag && amGrounded && !dragging) {
+			rb.drag = anchorWeight;
+			dragging = true;
+		}
 
         float vert = rb.velocity.y;
         // Check for ver movement/ jump inputs
