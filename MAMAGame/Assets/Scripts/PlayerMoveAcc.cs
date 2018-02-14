@@ -75,7 +75,7 @@ public class PlayerMoveAcc : MonoBehaviour
             Vector2 temp = new Vector2(maxSpeedTemp, rb.velocity.y);
             rb.velocity = temp;
         }
-		
+
 		// Code related to acceleration
 		///////////////////////////////////////////////////////////////////////
 		// Code relating to drag
