@@ -13,12 +13,16 @@ public class BaddieVision : MonoBehaviour {
     private float lastFlipTime;
     private LineRenderer lr;
 
+	private LevelController lc;
+
 	// Use this for initialization
 	void Start () {
         playerEnterTime = 0.0f;
         this.lastFlipTime = Time.time;
         spottedPlayer = false;
         this.origionalColor = this.GetComponent<SpriteRenderer>().color;
+
+		this.lc = GameObject.FindWithTag("GameController").GetComponent<LevelController>();
 
         this.lr = GetComponent<LineRenderer>();
         //lr.SetPosition(0, this.transform.position);
@@ -45,7 +49,7 @@ public class BaddieVision : MonoBehaviour {
             this.GetComponent<SpriteRenderer>().color = temp;
             if (Time.time - playerEnterTime > alertTime)
             {
-                print("GAME OVER");
+				lc.gameOver ();
                 playerEnterTime = Time.time;
             }
         }
