@@ -23,15 +23,12 @@ public class BaddieVision : MonoBehaviour {
         this.lr = GetComponent<LineRenderer>();
         //lr.SetPosition(0, this.transform.position);
         lr.positionCount = this.GetComponent<PolygonCollider2D>().points.Length;
-        for (int i  = 0; i < lr.positionCount; i++)
+        for (int i  = 0; i < lr.positionCount ; i++)
         {
-            Vector3 temp = this.GetComponent<PolygonCollider2D>().points[i];
+            Vector3 temp = this.GetComponent<PolygonCollider2D>().points[i % (lr.positionCount - 1)];
             lr.SetPosition(i, temp);
         }
-        
-        lr.SetPosition(0, Vector3.zero);
-        lr.SetPosition(1, this.GetComponent<PolygonCollider2D>().points[6]);  // TODO: Change this 7. I know from experiment 6 works in this case
-
+        // Draw the line connecting the first and last point
 	}
 	
 	// Update is called once per frame
