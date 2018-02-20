@@ -13,13 +13,13 @@ public class KillWallController : MonoBehaviour {
 		this.lc = GameObject.FindWithTag("GameController").GetComponent<LevelController>();
 
 	}
-	
 
-	private void OnCollisionEnter2D(Collider2D collision) {
-		
-		if (collision.gameObject.CompareTag("Player")) {
-			this.lc.gameOver();
-		}
-		
-	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            this.lc.gameOver();
+        }
+    }
+
 }

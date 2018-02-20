@@ -43,10 +43,7 @@ public class PlayerMoveAcc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
-		//////////////////////////////////////////////////////////
-		// Code related to acceleration
-		
+
         float horiz = Input.GetAxis("Horizontal");
         //float vert = rb.velocity.y;
         if (horiz != 0 && Mathf.Abs(rb.velocity.x) < maxSpeed) // If the player is pushing a move button, and we're under max speed.
@@ -66,7 +63,6 @@ public class PlayerMoveAcc : MonoBehaviour
 
         } else if(Mathf.Abs(rb.velocity.x) >= maxSpeed)
         {
-			print("MaxSpeed");
             float maxSpeedTemp = maxSpeed;
             if (rb.velocity.x < 0)
             {
@@ -75,38 +71,14 @@ public class PlayerMoveAcc : MonoBehaviour
             Vector2 temp = new Vector2(maxSpeedTemp, rb.velocity.y);
             rb.velocity = temp;
         }
+		
 
-		// Code related to acceleration
-		///////////////////////////////////////////////////////////////////////
-		// Code relating to drag
-		
-		bool amGrounded = this.isGrounded();
-		if( Input.GetKeyUp(KeyCode.LeftShift) || !amGrounded) {
-			// If you pick up the anchor or you fall off an edge
-			this.tryingToDrag = false;
-			dragging = false;
-			rb.drag = 0;
-		}else if  (Input.GetKey(KeyCode.LeftShift)) {
-			this.tryingToDrag = true;
-		}
-		// We're using this strange order of logic because if the player
-		// presses shift while in air, the game should start dragging 
-		// as soon as it can. 
-		if (this.tryingToDrag && amGrounded && !dragging) {
-			rb.drag = anchorWeight;
-			dragging = true;
-		}
-		
-		// Code related to drag
-		/////////////////////////////////////////////////////////////////////
-		// Code related to jumping
-		
+
         float vert = rb.velocity.y;
         // Check for ver movement/ jump inputs
         if (Input.GetKeyDown(KeyCode.Space) ||
             Input.GetKeyDown(KeyCode.W) ||
-            Input.GetKeyDown(KeyCode.UpArrow) &&
-			!this.tryingToDrag)   // Can't jump and drag
+            Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (this.isGrounded())
             {
@@ -124,6 +96,30 @@ public class PlayerMoveAcc : MonoBehaviour
 
         }
 
+
+        bool amGrounded = this.isGrounded();
+
+        
+        if (Input.GetKeyUp(KeyCode.LeftShift) || !amGrounded)
+        {
+            // If you pick up the anchor or you fall off an edge
+            this.tryingToDrag = false;
+            dragging = false;
+            rb.drag = 0;
+        }
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            this.tryingToDrag = true;
+        }
+
+        // We're using this strange order of logic because if the player
+        // presses shift while in air, the game should start dragging 
+        // as soon as it can. 
+        if (this.tryingToDrag && amGrounded && !dragging)
+        {
+            rb.drag = anchorWeight;
+            dragging = true;
+        }
         rb.AddForce(new Vector2(horiz, 0) * speed);
     }
 

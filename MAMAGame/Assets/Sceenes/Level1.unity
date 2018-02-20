@@ -2165,6 +2165,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19d53c68cff79fe4fb905f3b644ed58c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1330872073
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 248.36858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -71.17595
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10.153731
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027143413612908, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 09e37c2871ec72f40b3bffc97a9bcf3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1334748284 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4812521889910550, guid: 84e779d1b2c29a2499f42f33fcc97bf3,
