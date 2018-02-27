@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 50832472576556998}
   - component: {fileID: 58893408535513380}
   - component: {fileID: 114640964836824556}
-  - component: {fileID: 114820210407327876}
+  - component: {fileID: 114605568221364266}
+  - component: {fileID: 114704977321784320}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -98,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228821619295652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 2.9, z: 0}
+  m_LocalPosition: {x: 1362.8, y: 0.3, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4648193723845380}
@@ -126,7 +127,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 35.07
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -176,7 +177,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.09
 --- !u!81 &81347161502219296
 AudioListener:
   m_ObjectHideFlags: 1
@@ -191,6 +192,22 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496073807953392}
   m_Enabled: 1
+--- !u!114 &114605568221364266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228821619295652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63a72ae2f0d3714bbfa50eb57685fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowFillSpeed: 0.5
+  speedNeeded: 80
+  maxFlow: 100
+  currentFlow: 0
+  dashCost: 25
 --- !u!114 &114640964836824556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,7 +224,7 @@ MonoBehaviour:
   maxSpeed: 93.8
   jumpHeight: 11
   extraDoubleJumps: 1
---- !u!114 &114820210407327876
+--- !u!114 &114704977321784320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -218,11 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77742ee617a357a45b4a5d4489d1379d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 150
-  acceleration: 30
-  maxSpeed: 60
+  minSpeed: 250
+  acceleration: 20
+  maxSpeed: 120
   jumpHeight: 20
-  extraDoubleJumps: 1
+  extraDoubleJumps: 0
   anchorWeight: 5
   speed: 1
 --- !u!124 &124193069859468088

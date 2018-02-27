@@ -11,16 +11,26 @@ public class PlayerMoveAcc : MonoBehaviour
     public float maxSpeed;
     public float jumpHeight;
     public int extraDoubleJumps = 0;
-	
 	public float anchorWeight;
-
     public float speed;
+
+
 
     private float runTime;
 
 	private bool tryingToDrag;
 	private bool dragging;
-	
+
+    private bool direction; // Left <=> false
+                            // Right <=> true
+
+    /////////////
+    // Below is for dash processing 
+    private bool lockMovement;
+    private float lockStartTime;
+    private float duration;
+    private float oldGrav;
+
     private Transform GroundCheck;
     private Rigidbody2D rb;
     private int jumpCharges;
@@ -38,14 +48,22 @@ public class PlayerMoveAcc : MonoBehaviour
 		
 		tryingToDrag = false;
 		dragging = false;
+        this.lockMovement = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.lockMovement)
+        {
+            processLockedMovement();
+            // Move the player gameObject by dash protocol
+            dashMovement();
+            return;
+        }
 
         float horiz = Input.GetAxis("Horizontal");
-        //float vert = rb.velocity.y;
+        this.direction = horiz > 0;
         if (horiz != 0 && Mathf.Abs(rb.velocity.x) < maxSpeed) // If the player is pushing a move button, and we're under max speed.
         {
 
@@ -121,6 +139,42 @@ public class PlayerMoveAcc : MonoBehaviour
             dragging = true;
         }
         rb.AddForce(new Vector2(horiz, 0) * speed);
+    }
+
+    private void processLockedMovement()
+    {
+        if (Time.time - this.lockStartTime >= this.duration)
+        {
+            this.lockMovement = false;
+            this.rb.gravityScale = oldGrav;
+        }
+    }
+
+    private void beginLockMovement(float deltaTime)
+    {
+        this.lockMovement = true;
+        this.lockStartTime = Time.time;
+        this.duration = deltaTime;
+    }
+
+    public void dash(float dashTime)
+    {
+        this.beginLockMovement(dashTime);
+        this.oldGrav = rb.gravityScale;
+        this.rb.gravityScale = 0;
+    }
+
+    // Get's called every frame when we're dashing.
+    private void dashMovement()
+    {
+        // Only move horizontally
+        float speedAndDir = this.maxSpeed;
+        if (!this.direction)
+        {
+            // If we are moving Left
+            speedAndDir *= -1;
+        }
+        rb.velocity = new Vector2(speedAndDir, 0);
     }
 
     private bool isGrounded()
