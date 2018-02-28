@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58893408535513380}
   - component: {fileID: 114640964836824556}
   - component: {fileID: 114605568221364266}
-  - component: {fileID: 114704977321784320}
+  - component: {fileID: 114030342249746662}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228821619295652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1362.8, y: 0.3, z: 0}
+  m_LocalPosition: {x: 1368.3, y: 1.4, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4648193723845380}
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 3.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -192,6 +192,24 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496073807953392}
   m_Enabled: 1
+--- !u!114 &114030342249746662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228821619295652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77742ee617a357a45b4a5d4489d1379d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 250
+  acceleration: 30
+  maxSpeed: 65
+  jumpHeight: 20
+  extraDoubleJumps: 0
+  anchorWeight: 5
+  speed: 1
 --- !u!114 &114605568221364266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,10 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowFillSpeed: 0.5
-  speedNeeded: 80
+  speedNeeded: 40
   maxFlow: 100
   currentFlow: 0
-  dashCost: 25
+  dashCost: 100
 --- !u!114 &114640964836824556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,24 +242,6 @@ MonoBehaviour:
   maxSpeed: 93.8
   jumpHeight: 11
   extraDoubleJumps: 1
---- !u!114 &114704977321784320
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1228821619295652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77742ee617a357a45b4a5d4489d1379d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpeed: 250
-  acceleration: 20
-  maxSpeed: 120
-  jumpHeight: 20
-  extraDoubleJumps: 0
-  anchorWeight: 5
-  speed: 1
 --- !u!124 &124193069859468088
 Behaviour:
   m_ObjectHideFlags: 1

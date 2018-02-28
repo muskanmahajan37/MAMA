@@ -54,7 +54,7 @@ public class PlayerSkillController : MonoBehaviour {
     {
         if (this.currentFlow >= dashCost)
         {
-            float dashDur = 1.0f;
+            float dashDur = 0.1f;
 
             this.currentFlow -= dashCost;
             this.GetComponent<PlayerMoveAcc>().dash(dashDur);
