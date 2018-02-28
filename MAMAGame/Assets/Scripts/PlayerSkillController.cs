@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class PlayerSkillController : MonoBehaviour {
 
 
-    public float flowFillSpeed = 0.5f;
-    public int speedNeeded = 80;
+    public float flowFillSpeed = 0.1f;
+    public int speedNeeded = 100;
 
     public float maxFlow = 100;
 	public float currentFlow;
 
-    public float dashCost = 25;
+    public float dashCost = 100;
 
 	private Image fill;
 
@@ -22,7 +22,7 @@ public class PlayerSkillController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.currentFlow = 0;
+		this.currentFlow = 100;
 		this.fill = GameObject.Find ("Canvas/FillBG/Fill").GetComponent<Image>();
 	}
 	
@@ -81,9 +81,10 @@ public class PlayerSkillController : MonoBehaviour {
 
 	void redrawFlow() {
         RectTransform rt = this.fill.GetComponent<RectTransform>();
-        Vector2 newSize = new Vector2((((float)currentFlow) / ((float)maxFlow)) * 100, rt.sizeDelta.y);
+        float xSize = (((float)currentFlow) / ((float)maxFlow)) * 100;
+        Vector2 newSize = new Vector2(xSize, rt.sizeDelta.y);
         rt.sizeDelta = newSize;
-        Vector2 newPos = new Vector2((currentFlow - maxFlow) / 2.0f, rt.localPosition.y);
+        Vector2 newPos = new Vector2(xSize - 100, rt.localPosition.y);
         rt.localPosition = newPos;
 	}
 }

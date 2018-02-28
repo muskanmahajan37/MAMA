@@ -63,9 +63,9 @@ public class PlayerMoveAcc : MonoBehaviour
         }
 
         float horiz = Input.GetAxis("Horizontal");
-        this.direction = horiz > 0;
         if (horiz != 0 && Mathf.Abs(rb.velocity.x) < maxSpeed) // If the player is pushing a move button, and we're under max speed.
         {
+            this.direction = horiz > 0; // If we press a button, record the direction
 
             float minTemp = this.minSpeed;
             if (horiz < 0)
