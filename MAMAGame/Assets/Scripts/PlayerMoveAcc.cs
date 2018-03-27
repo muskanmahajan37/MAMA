@@ -35,6 +35,8 @@ public class PlayerMoveAcc : MonoBehaviour
     private Rigidbody2D rb;
     private int jumpCharges;
 
+    private SpriteRenderer sr;
+
     // Use this for initialization
     void Start()
     {
@@ -49,6 +51,8 @@ public class PlayerMoveAcc : MonoBehaviour
 		tryingToDrag = false;
 		dragging = false;
         this.lockMovement = false;
+
+        this.sr = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -62,10 +66,28 @@ public class PlayerMoveAcc : MonoBehaviour
             return;
         }
 
+        // Update the transparency of this sprite based on the speed
+        Color alpha = this.sr.color;
+        alpha.a = 1- (Mathf.Abs(this.rb.velocity.x) / this.maxSpeed);
+        this.sr.color = alpha;
+        // Now at the same time make the Glow child become less transparent
+        alpha = this.transform.Find("Glow").GetComponent<SpriteRenderer>().color;
+        alpha.a = (Mathf.Abs(this.rb.velocity.x) / this.maxSpeed);
+        this.transform.Find("Glow").GetComponent<SpriteRenderer>().color = alpha;
+
+
         float horiz = Input.GetAxis("Horizontal");
         if (horiz != 0 && Mathf.Abs(rb.velocity.x) < maxSpeed) // If the player is pushing a move button, and we're under max speed.
         {
-            this.direction = horiz > 0; // If we press a button, record the direction
+
+            if (this.direction != (horiz > 0))
+            {
+                // If we are changing our direction
+                this.sr.flipX = (horiz < 0);
+                this.transform.Find("Glow").GetComponent<SpriteRenderer>().flipX = (horiz < 0);
+                this.direction = horiz > 0; // If we press a button, record the direction
+            }
+
 
             float minTemp = this.minSpeed;
             if (horiz < 0)
@@ -145,6 +167,7 @@ public class PlayerMoveAcc : MonoBehaviour
     {
         if (Time.time - this.lockStartTime >= this.duration)
         {
+            // If we have waited enough time
             this.lockMovement = false;
             this.rb.gravityScale = oldGrav;
         }

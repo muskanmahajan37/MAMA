@@ -6,6 +6,7 @@ public class BaddieVision : MonoBehaviour {
 
     public float alertTime;
     public float flipTime;
+    public Sprite alert;
 
     float playerEnterTime;
     private bool spottedPlayer;
@@ -40,12 +41,8 @@ public class BaddieVision : MonoBehaviour {
         if (spottedPlayer)
         {
             Color temp = this.GetComponent<SpriteRenderer>().color;
-            float red = temp.r + ((Time.time - playerEnterTime) / alertTime) * 0.02f;
-            Vector3 colors = new Vector3(red, temp.g, temp.b);
-            colors.Normalize();
-            temp.r = colors.x;
-            temp.g = colors.y;
-            temp.b = colors.z;
+            temp.a = 1 - ((Time.time - playerEnterTime) / alertTime);
+            print("temp.a" + temp.a);
             this.GetComponent<SpriteRenderer>().color = temp;
             if (Time.time - playerEnterTime > alertTime)
             {

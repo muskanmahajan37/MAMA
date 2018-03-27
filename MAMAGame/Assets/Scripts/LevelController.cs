@@ -15,5 +15,6 @@ public class LevelController : MonoBehaviour {
 		print("Game over in LevelController");
 
 		Destroy(GameObject.FindWithTag("Player"));
+        
 	}
 }
