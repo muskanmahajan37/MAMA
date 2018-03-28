@@ -16,5 +16,7 @@ public class LevelController : MonoBehaviour {
 
 		Destroy(GameObject.FindWithTag("Player"));
         
+        
+
 	}
 }

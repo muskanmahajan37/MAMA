@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920118739081704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 613.5282, y: 17.838156, z: -11}
+  m_LocalPosition: {x: 1730.4518, y: 31.094358, z: -11}
   m_LocalScale: {x: -6, y: 6, z: 1}
   m_Children:
   - {fileID: 224099234507890194}
@@ -106,12 +106,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.046166994, y: 0.12574998}
+    - - {x: 2.3692627, y: 0.15332222}
+      - {x: -0.046166994, y: 0.12574998}
       - {x: -0.099999994, y: -0.03}
       - {x: -0.074999996, y: -0.085}
-      - {x: -0.065, y: -0.099999994}
-      - {x: 1.1203369, y: -0.088515855}
-      - {x: 1.074231, y: 0.05815487}
+      - {x: 3.3026123, y: -0.08034293}
+      - {x: 3.1829429, y: 0.1071949}
 --- !u!114 &114612892267423244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertTime: 2
   flipTime: 10
-  alert: {fileID: 0}
 --- !u!120 &120023809219914770
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -324,5 +323,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
