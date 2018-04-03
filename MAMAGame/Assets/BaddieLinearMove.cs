@@ -7,6 +7,7 @@ public class BaddieLinearMove : MonoBehaviour {
     public float deltaX;
     public float deltaY;
     public float timeItWillTake = 5;
+    public float waitTime = 2;
 
     private float elapsed;
     private Vector3 startPos;
@@ -40,6 +41,8 @@ public class BaddieLinearMove : MonoBehaviour {
         if (this.elapsed / this.timeItWillTake >= 1)
         {
             // If we have gone the entire time, then flip the direction of movement
+
+            // Wait for a few seconds, then flip direction
             this.elapsed = 0;
             this.returnHuh = !this.returnHuh;
         }

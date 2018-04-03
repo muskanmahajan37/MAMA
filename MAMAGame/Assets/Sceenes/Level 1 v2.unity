@@ -825,9 +825,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33eeaccb5507954298177a5a90cb24b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaX: -10
-  deltaY: 10
-  timeItWillTake: 5
+  deltaX: -20
+  deltaY: 0
+  timeItWillTake: 2
 --- !u!1001 &197786778
 Prefab:
   m_ObjectHideFlags: 0
