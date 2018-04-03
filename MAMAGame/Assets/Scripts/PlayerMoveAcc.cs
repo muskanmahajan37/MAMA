@@ -68,7 +68,7 @@ public class PlayerMoveAcc : MonoBehaviour
 
         // Update the transparency of this sprite based on the speed
         Color alpha = this.sr.color;
-        alpha.a = 1- (Mathf.Abs(this.rb.velocity.x) / this.maxSpeed);
+        alpha.a = 1- (Mathf.Abs(this.rb.velocity.magnitude) / this.maxSpeed);
         this.sr.color = alpha;
         // Now at the same time make the Glow child become less transparent
         alpha = this.transform.Find("Glow").GetComponent<SpriteRenderer>().color;

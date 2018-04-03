@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour {
 
@@ -14,8 +15,9 @@ public class LevelController : MonoBehaviour {
 	public void gameOver() {
 		print("Game over in LevelController");
 
-		Destroy(GameObject.FindWithTag("Player"));
-        
+		//Destroy(GameObject.FindWithTag("Player"));
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
 
 	}
