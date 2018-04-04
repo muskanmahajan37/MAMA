@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212144164286227930}
   - component: {fileID: 61012504720394366}
   - component: {fileID: 114602012986718292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802231849597856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1398.046, y: -29.582, z: 0}
+  m_LocalPosition: {x: 30.8, y: -9.049, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +59,7 @@ BoxCollider2D:
     border: {x: 0.21875, y: 0.1875, z: 0.125, w: 0.1875}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.75, y: 3.75}
-    newSize: {x: 96.75442, y: 2.2361927}
+    newSize: {x: 98.676346, y: 2.2361927}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 96.75442, y: 2.2361927}
+  m_Size: {x: 98.676346, y: 2.2361927}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
