@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour {
 
-
+    public GameObject grody;
+    public GameObject tubular;
 
 	// Use this for initialization
 	void Start () {
@@ -14,14 +16,14 @@ public class LevelController : MonoBehaviour {
 
     public void levelWon()
     {
-        GameObject.Find("Canvas/Tubular").SetActive(true);
+        this.tubular.SetActive(true);
     }
 	
 	public void gameOver() {
 		print("Game over in LevelController");
         var awayPos = new Vector3(-1000, -1000, -1000);
-        GameObject.Find("Player").transform.position =awayPos;
-        GameObject.Find("Canvas/Grody").SetActive(true);
+        GameObject.Find("Player").transform.position = awayPos;
+        this.grody.SetActive(true);
 	}
 
     public void restartLevel()
