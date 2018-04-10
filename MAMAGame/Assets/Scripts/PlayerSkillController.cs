@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerSkillController : MonoBehaviour {
 
-
     public float flowFillSpeed = 0.1f;
     public int speedNeeded = 100;
 

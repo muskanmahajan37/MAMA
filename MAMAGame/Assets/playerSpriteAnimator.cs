@@ -33,16 +33,22 @@ public class playerSpriteAnimator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+     
         
-        if (this.rb.velocity.x != 0)
+        if (! this.GetComponent<PlayerMoveAcc>().isDashing)
         {
-            // If we are moving then update make us run
-            this.runAnimation();
-        } else
-        {
-            // Else we're not moving so stand still
-            this.sr.sprite = this.idle;
-        }
+            // If we are not dashing
+            if (this.rb.velocity.x != 0)
+            {
+                // If we are moving then update make us run
+                this.runAnimation();
+            }
+            else
+            {
+                // Else we're not moving so stand still
+                this.sr.sprite = this.idle;
+            }
+        } 
     }
 
     private void runAnimation()
