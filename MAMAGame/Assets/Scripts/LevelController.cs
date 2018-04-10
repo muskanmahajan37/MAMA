@@ -23,7 +23,6 @@ public class LevelController : MonoBehaviour {
   void Update() {
       if (!this.levelOver) {
           this.timer.text = (Time.time - startTime).ToString("0.00");
-          print(this.levelOver);
       }
   }
 
