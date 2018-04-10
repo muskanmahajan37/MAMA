@@ -66,6 +66,7 @@ public class PlayerMoveAcc : MonoBehaviour
             return;
         }
 
+        /*
         // Update the transparency of this sprite based on the speed
         Color alpha = this.sr.color;
         alpha.a = 1- (Mathf.Abs(this.rb.velocity.magnitude) / this.maxSpeed);
@@ -74,7 +75,7 @@ public class PlayerMoveAcc : MonoBehaviour
         alpha = this.transform.Find("Glow").GetComponent<SpriteRenderer>().color;
         alpha.a = (Mathf.Abs(this.rb.velocity.x) / this.maxSpeed);
         this.transform.Find("Glow").GetComponent<SpriteRenderer>().color = alpha;
-
+        */
 
         float horiz = Input.GetAxis("Horizontal");
         if (horiz != 0 && Mathf.Abs(rb.velocity.x) < maxSpeed) // If the player is pushing a move button, and we're under max speed.
