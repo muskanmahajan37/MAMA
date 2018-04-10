@@ -19,7 +19,8 @@ public class NextLevelGate : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Updated LV1");
+            LevelController lc = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelController>();
+            lc.levelWon();
         }
     }
 }
