@@ -271,6 +271,7 @@ MonoBehaviour:
   extraDoubleJumps: 0
   anchorWeight: 5
   speed: 1
+  isDashing: 0
 --- !u!114 &114605568221364266
 MonoBehaviour:
   m_ObjectHideFlags: 1

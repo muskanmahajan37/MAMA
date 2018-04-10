@@ -26,6 +26,7 @@ public class PlayerMoveAcc : MonoBehaviour
 
     /////////////
     // Below is for dash processing 
+    public bool isDashing;
     private bool lockMovement;
     private float lockStartTime;
     private float duration;
@@ -40,6 +41,7 @@ public class PlayerMoveAcc : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        this.isDashing = false;
         this.rb = this.GetComponent<Rigidbody2D>();
         this.GroundCheck = this.transform.Find("GroundCheck");
         if (this.GroundCheck == null)
@@ -65,17 +67,6 @@ public class PlayerMoveAcc : MonoBehaviour
             dashMovement();
             return;
         }
-
-        /*
-        // Update the transparency of this sprite based on the speed
-        Color alpha = this.sr.color;
-        alpha.a = 1- (Mathf.Abs(this.rb.velocity.magnitude) / this.maxSpeed);
-        this.sr.color = alpha;
-        // Now at the same time make the Glow child become less transparent
-        alpha = this.transform.Find("Glow").GetComponent<SpriteRenderer>().color;
-        alpha.a = (Mathf.Abs(this.rb.velocity.x) / this.maxSpeed);
-        this.transform.Find("Glow").GetComponent<SpriteRenderer>().color = alpha;
-        */
 
         float horiz = Input.GetAxis("Horizontal");
         if (horiz != 0 && Mathf.Abs(rb.velocity.x) < maxSpeed) // If the player is pushing a move button, and we're under max speed.
@@ -170,6 +161,7 @@ public class PlayerMoveAcc : MonoBehaviour
         {
             // If we have waited enough time
             this.lockMovement = false;
+            this.isDashing = false;
             this.rb.gravityScale = oldGrav;
         }
     }
@@ -183,6 +175,7 @@ public class PlayerMoveAcc : MonoBehaviour
 
     public void dash(float dashTime)
     {
+        this.isDashing = true;
         this.beginLockMovement(dashTime);
         this.oldGrav = rb.gravityScale;
         this.rb.gravityScale = 0;
